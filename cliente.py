@@ -1,13 +1,8 @@
-cat > servidor.py <<'EOF'
+cat > cliente.py <<'EOF'
 import socket
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as servidor:
- servidor.bind(("127.0.0.1", 5005))
- servidor.listen(1)
- print("Servidor aguardando conexão na porta 5005", flush=True)
- conexao, endereco = servidor.accept()
- with conexao:
- pedido = conexao.recv(1024).decode("utf-8")
- print("Pedido recebido:", pedido, flush=True)
- resposta = "Recebido pelo servidor: " + pedido
- conexao.sendall(resposta.encode("utf-8"))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as cliente:
+ cliente.connect(("127.0.0.1", 5005))
+ cliente.sendall("PEDIDO-42".encode("utf-8"))
+ resposta = cliente.recv(1024).decode("utf-8")
+ print("Resposta recebida:", resposta)
 EOF
