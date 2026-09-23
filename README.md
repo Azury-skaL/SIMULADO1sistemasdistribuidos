@@ -2,7 +2,7 @@
 Nome: Rafael Felipe Zambeli
 RA:413009912035
 ## Problema da empresa
-[Descreva, com suas palavras, o pedido que o cliente deve enviar ao servidor.]
+O cliente deve enviar o código PEDIDO-42 para o servidor TCP. O servidor recebe esse pedido, processa a mensagem e devolve uma confirmação ao cliente.
 ## Arquivos
 - servidor.py: aguarda a conexão, recebe o pedido e envia uma confirmação.
 - cliente.py: conecta-se ao servidor, envia o pedido e apresenta a resposta recebida.
